@@ -12,8 +12,8 @@ TO RUN:
       from intan: (record of analog inputs for different stim; led, eye track, vs timing, behaviour etc.)
       
       - 'time.dat';
-        - 'board-ADC-00.dat' (00-04, as required);
-        - 'info.rhd'; 
+      - 'board-ADC-00.dat' (00-04, as required);
+      - 'info.rhd'; 
       from psychopy: 
         - '..._vs_date.csv' (order of stimuli)
       from kilosort/phy: 
