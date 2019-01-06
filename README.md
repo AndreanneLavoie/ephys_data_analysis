@@ -27,6 +27,7 @@ from kilosort/phy:
    - 'cluster_groups.tsv;
 
 2. Run create_spikes.m
+
       Note: you will be asked to select the info.rhd file (which should be in your folder containing everything), therefore
             your path will be automatically saved;
             
