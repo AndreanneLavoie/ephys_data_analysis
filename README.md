@@ -10,7 +10,8 @@ Dependencies:
 TO RUN:
 1. Save all data into a single folder; Incluing:
       from intan: (record of analog inputs for different stim; led, eye track, vs timing, behaviour etc.)
-        1. 'time.dat';
+      
+      - 'time.dat';
         - 'board-ADC-00.dat' (00-04, as required);
         - 'info.rhd'; 
       from psychopy: 
