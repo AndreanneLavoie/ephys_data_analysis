@@ -1,0 +1,20 @@
+%%check for correct NOT/DTN recording location & population led activity
+% i.e. look at population psth (and tuning - for ori only)
+
+%must load spikes construct manually 
+
+%filter out noise
+assigns = spikes.labels(spikes.labels(:,2) ~= 0);
+good_spikes = filtspikes(spikes, 0, 'assigns', assigns);
+
+%psth
+figure;
+psth_bl(good_spikes)
+
+%tuning for 'ori'
+if ~isempty(strfind(spikes.kilosort_path, 'ori'))
+    figure;
+    compute_tuning(spikes, assigns, 'ori', 1, 1)
+end
+
+ 

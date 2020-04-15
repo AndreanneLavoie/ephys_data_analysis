@@ -1,0 +1,38 @@
+function spikes = is_visual_driven_spikes(spikes, tuning)
+%% this function calls is_visual_driven for all good spikes and saves as new field in spikes construct
+%INPUT
+%spikes construct
+
+
+%OUTPUT 
+%spikes with new .is_visual_driven field [cluster is_vis_driven]; logic value 
+
+
+% identify good units
+good_units = spikes.labels(spikes.labels(:,2) == 2);
+num_units = length(good_units);
+
+visual_activity = nan(num_units, 2);
+
+
+    for i = 1:num_units
+        [visual_activity_flag, direction_selectivity_flag] = is_visual_driven(spikes, good_units(i), tuning);
+        visual_activity(i,:) = [good_units(i) visual_activity_flag];
+    end
+    
+    %convert to spiketime format
+    spikes.is_visual_driven = nan(spikes.assigns);
+    assigns = unique(spikes.assigns);
+    
+    for n = 1:length(assigns)
+        index = spikes.assings == assigns(n);
+        
+        if assigns(n) == any(good_units)
+            spikes.is_visual_driven(index) = visual_activity(visual_activity(:,1)==assigns(n),2);
+        else
+            spikes.is_visual_driven(index) = nan;
+        end
+    end
+    
+    
+end
